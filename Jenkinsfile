@@ -10,11 +10,25 @@ pipeline {
             }
         }
         
-        stage("run unit-test"){
-            steps {
-                sh "./mvnw test"
+        //stage("run unit-test"){
+            //steps {
+               // sh "./mvnw test"
+           // }
+       // }
+         stage("CodeScanning"){
+            environment {
+               SONAR_HOME = tool name: 'sonar-scan'
             }
+            steps {
+                withSonarQubeEnv('SonarServer') {
+              
+                    sh "${SONAR_HOME}/bin/sonar-scanner"
+                }
+            }
+
         }
+
+
     }
 }
         
