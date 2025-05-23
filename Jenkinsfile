@@ -9,12 +9,14 @@ pipeline {
                 sh "./mvnw install"
             }
         }
-    }
-}
-        stage("Build"){
+        
+        stage("run unit-test"){
             steps {
-                sh "./mvnw install"
+                sh "./mvnw test"
             }
         }
+    }
+}
+        
     
 
