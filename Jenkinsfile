@@ -15,7 +15,7 @@ pipeline {
                // sh "./mvnw test"
            // }
        // }
-         stage("CodeScanning"){
+        stage("CodeScanning"){
             environment {
                SONAR_HOME = tool name: 'sonar-scan'
             }
