@@ -11,8 +11,10 @@ pipeline {
         }
     }
 }
-stage("Run Unit-Tests"){
-       steps {
-        sh "./mvnw test"
-    }
-}
+        stage("Build"){
+            steps {
+                sh "./mvnw install"
+            }
+        }
+    
+
